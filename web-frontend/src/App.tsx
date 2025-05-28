@@ -14,7 +14,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="Page // w-dhv l-dhv aspect-square bg-gray-800 rounded-4xl">
       <MostPopular products={products} />
     </div>  
   );
