@@ -3,6 +3,7 @@ import { fetchProducts } from "./api";
 import type {Product} from "../types/Product"
 import MostPopular from "./components/MostPopular";
 import './App.css'
+import Banner from "./components/Banner";
 
 
 function App() {  
@@ -15,7 +16,10 @@ function App() {
 
   return (
     <div className="Page // w-dhv l-dhv aspect-square bg-gray-800 rounded-4xl">
-      <MostPopular products={products} />
+      <div className="Page content // sm:p-[30px] md:p-[60px] gap:30">
+        <Banner/>
+        <MostPopular products={products} />
+      </div>
     </div>  
   );
 }

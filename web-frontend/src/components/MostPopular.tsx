@@ -7,8 +7,8 @@ interface MostPopularProps {
 
 const MostPopular: React.FC<MostPopularProps> = ({ products }) => {
   return (
-      <div className="Page content // sm:p-[30px] md:p-[60px]">
-        <div className="most popular container // aspect-square bg-gray-900 rounded-4xl p-[30px] text-white">
+      
+        <div className="aspect-square bg-gray-900 rounded-4xl p-[30px] text-white">
           <div className="text-left mb-8">
             <h4 className="text-3xl font-semibold">
               <em>Most Popular</em> Right Now
@@ -35,7 +35,6 @@ const MostPopular: React.FC<MostPopularProps> = ({ products }) => {
             ))}
           </div>
         </div>
-      </div>
   );
 };
 
