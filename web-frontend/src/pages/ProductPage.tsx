@@ -17,7 +17,7 @@ export default function ProductPage() {
           <img
             src={imageUrl}
             alt={product.name}
-            className="w-full max-h-[400px] object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+            className="w-full max-h-[400px] object-cover rounded-lg "
           />
         </div>
 
@@ -25,7 +25,7 @@ export default function ProductPage() {
         <div className="flex flex-col justify-center p-8 space-y-6">
           <h1 className="text-3xl font-bold text-white">{product.name}</h1>
           <p className="text-gray-400 text-base leading-relaxed">{product.description}</p>
-          <div className="text-2xl font-semibold text-white">{product.price}</div>
+          <div className="text-2xl font-semibold text-white">$ {product.price}</div>
           <button className="mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow transition duration-300 w-fit">
             Pay Now
           </button>
