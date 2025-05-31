@@ -13,6 +13,7 @@ export function useProducts() {
       .then(data => {
         setProducts(data);
         setLoading(false);
+        console.log(data);
       })
       .catch(err => {
         console.error(err);

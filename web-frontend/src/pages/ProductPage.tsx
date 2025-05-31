@@ -1,11 +1,13 @@
+import { useProductById } from "../hooks/UseProductById";
 
 export default function ProductPage() {
-  const product = {
-    name: 'Sleek Wireless Headphones',
-    description: 'Experience premium sound with noise cancellation and 30 hours of battery life.',
-    price: '$199.99',
-    image: 'https://via.placeholder.com/500x500?text=Product+Image',
-  };
+  const { product, loading, error } = useProductById();
+  if (loading) return <div className="text-white">Loading...</div>;
+  if (error || !product) return <div className="text-red-500">{error || "Product not found"}</div>;
+
+  const imageUrl = product.Image?.url
+    ? `http://localhost:1337${product.Image.url}`
+    : "https://via.placeholder.com/500x500?text=No+Image";
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-6 py-12">
@@ -13,7 +15,7 @@ export default function ProductPage() {
         {/* Left: Image */}
         <div className="bg-gray-700 flex items-center justify-center p-6">
           <img
-            src={product.image}
+            src={imageUrl}
             alt={product.name}
             className="w-full max-h-[400px] object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />

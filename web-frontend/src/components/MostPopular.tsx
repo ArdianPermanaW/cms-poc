@@ -19,7 +19,7 @@ const MostPopular: React.FC<MostPopularProps> = ({ products }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {products.slice(0, 8).map((product) => (
-              <Link to={`/products/${product.id}`} key={product.id} className="bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
+              <Link to={`/products/${product.documentId}`} key={product.id} className="bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
                 {product.Image && (
                   <img
                     src={`http://localhost:1337${product.Image.url}`}
