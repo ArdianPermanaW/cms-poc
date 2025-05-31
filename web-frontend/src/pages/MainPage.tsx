@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-import { fetchProducts } from "../hooks/api";
-import type {Product} from "../types/Product"
+
 import MostPopular from "../components/MostPopular";
 import '../App.css';
 import Banner from "../components/Banner";
+import { useProducts } from "../hooks/UseProduct";
 
 
 function MainPage() {  
-  const [products, setProducts] = useState<Product[]>([]);
+   const { products, loading, error } = useProducts();
 
-  useEffect(() => {
-    fetchProducts().then(setProducts);
-    console.log("Fetched products:", products);
-  }, []);
-
+  if (loading) return <div className="text-white">Loading...</div>;
+  if (error) return <div className="text-red-500">{error}</div>;
   return (
     <div className="Page // w-dhv l-dhv aspect-square bg-gray-800 rounded-4xl">
       <div className="Page content // sm:p-[30px] md:p-[60px] flex flex-col gap-8">
