@@ -1,26 +1,15 @@
-import { useEffect, useState } from "react";
-import { fetchProducts } from "./api";
-import type {Product} from "../types/Product"
-import MostPopular from "./components/MostPopular";
-import './App.css'
-import Banner from "./components/Banner";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import ProductPage from './pages/ProductPage';
 
-
-function App() {  
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    fetchProducts().then(setProducts);
-    console.log("Fetched products:", products);
-  }, []);
-
+function App() {
   return (
-    <div className="Page // w-dhv l-dhv aspect-square bg-gray-800 rounded-4xl">
-      <div className="Page content // sm:p-[30px] md:p-[60px] flex flex-col gap-8">
-        <Banner/>
-        <MostPopular products={products} />
-      </div>
-    </div>  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
