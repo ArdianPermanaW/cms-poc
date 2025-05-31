@@ -10,17 +10,15 @@ export default function ProductPage() {
     : "https://via.placeholder.com/500x500?text=No+Image";
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-6 py-12">
-      <div className="max-w-5xl w-full bg-gray-800 rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2 gap-8">
+    <div className="Page //w-full aspect-square bg-gray-800 rounded-4xl">
+      <div className="Page content // sm:p-[30px] md:p-[60px] flex flex-row gap-8">
         {/* Left: Image */}
-        <div className="bg-gray-700 flex items-center justify-center p-6">
           <img
             src={imageUrl}
             alt={product.name}
-            className="w-full max-h-[400px] object-cover rounded-lg "
+            className="aspect-square h-120 object-cover rounded mb-6 "
           />
-        </div>
-
+       
         {/* Right: Details */}
         <div className="flex flex-col justify-center p-8 space-y-6">
           <h1 className="text-3xl font-bold text-white">{product.name}</h1>
