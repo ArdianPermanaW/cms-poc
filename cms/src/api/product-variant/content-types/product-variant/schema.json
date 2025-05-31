@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variants",
+  "info": {
+    "singularName": "product-variant",
+    "pluralName": "product-variants",
+    "displayName": "Product Variant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "VariantImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
