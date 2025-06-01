@@ -10,14 +10,17 @@ export default function ProductPage() {
     : "https://via.placeholder.com/500x500?text=No+Image";
 
   return (
-    <div className="Page //w-full aspect-square bg-gray-800 rounded-4xl">
-      <div className="Page content // sm:p-[30px] md:p-[60px] flex flex-row gap-8">
+    <div className="w-full bg-gray-800 rounded-4xl ">
+      <div className="sm:p-[30px] md:p-[60px] flex flex-row gap-8 justify-center">
         {/* Left: Image */}
+        <div>
+
           <img
             src={imageUrl}
             alt={product.name}
             className="aspect-square h-120 object-cover rounded mb-6 "
           />
+        </div>
        
         {/* Right: Details */}
         <div className="flex flex-col justify-center p-8 space-y-6">
