@@ -377,6 +377,7 @@ export interface ApiProductVariantProductVariant
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_variants';
   info: {
+    description: '';
     displayName: 'Product Variant';
     pluralName: 'product-variants';
     singularName: 'product-variant';
@@ -385,6 +386,7 @@ export interface ApiProductVariantProductVariant
     draftAndPublish: true;
   };
   attributes: {
+    attributes: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -394,11 +396,15 @@ export interface ApiProductVariantProductVariant
       'api::product-variant.product-variant'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    sku: Schema.Attribute.String;
+    stock: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VariantImage: Schema.Attribute.Media<
+    variantImages: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
@@ -430,6 +436,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
+    product_variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

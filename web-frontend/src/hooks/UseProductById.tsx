@@ -18,6 +18,7 @@ export function useProductById() {
       .get(`${API_URL}/${id}?populate=*`)
       .then((res) => {
         setProduct(res.data.data);
+        console.log(res.data.data);
         setLoading(false);
       })
       .catch((err) => {

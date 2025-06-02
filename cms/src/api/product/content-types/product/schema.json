@@ -30,6 +30,11 @@
     },
     "description": {
       "type": "text"
+    },
+    "product_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant"
     }
   }
 }

@@ -1,3 +1,14 @@
+export interface ProductVariant {
+  id: number;
+  name: string; 
+  price?: number; 
+  sku?: string;
+  stock?: number;
+  attributes: {
+    [key: string]: string; 
+  };
+}
+
 export interface Product {
   id: number;
   documentId: string;
@@ -11,4 +22,5 @@ export interface Product {
       thumbnail?: { url: string };
     };
   };
+  product_variants?: ProductVariant[];
 }

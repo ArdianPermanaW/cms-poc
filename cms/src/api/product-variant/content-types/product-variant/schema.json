@@ -4,13 +4,29 @@
   "info": {
     "singularName": "product-variant",
     "pluralName": "product-variants",
-    "displayName": "Product Variant"
+    "displayName": "Product Variant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "VariantImage": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "attributes": {
+      "type": "json"
+    },
+    "variantImages": {
       "allowedTypes": [
         "images",
         "files",
