@@ -404,9 +404,8 @@ export interface ApiProductVariantProductVariant
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    variantImages: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    variantImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
     >;
   };
 }

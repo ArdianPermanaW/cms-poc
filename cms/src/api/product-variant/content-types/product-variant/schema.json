@@ -26,7 +26,7 @@
     "attributes": {
       "type": "json"
     },
-    "variantImages": {
+    "variantImg": {
       "allowedTypes": [
         "images",
         "files",
@@ -34,7 +34,7 @@
         "audios"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false
     }
   }
 }
