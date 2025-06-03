@@ -10,7 +10,9 @@ export default function ProductPage() {
   
   if (loading) return <div className="text-white">Loading...</div>;
   if (error || !product) return <div className="text-red-500">{error || "Product not found"}</div>;
-  const imageUrl = product.Image?.url
+  const imageUrl = selectedVariant?.variantImg?.url
+  ? `http://localhost:1337${selectedVariant.variantImg.url}`
+  : product.Image?.url
     ? `http://localhost:1337${product.Image.url}`
     : "https://via.placeholder.com/500x500?text=No+Image";
 
@@ -22,7 +24,7 @@ export default function ProductPage() {
 
           <img
             src={imageUrl}
-            alt={product.name}
+            alt={"test"}
             className="aspect-square h-120 object-cover rounded mb-6 "
           />
         </div>
@@ -52,7 +54,7 @@ export default function ProductPage() {
     })}
   </div>
           </div>  
-          <div className="text-2xl font-semibold text-white">$ {product.price}</div>
+          <div className="text-2xl font-semibold text-white">$ {displayPrice}</div>
           <button className="mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow transition duration-300 w-fit">
             Pay Now
           </button>

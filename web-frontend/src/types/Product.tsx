@@ -7,6 +7,10 @@ export interface ProductVariant {
   attributes: {
     [key: string]: string; 
   };
+  variantImg?: {
+    url: string;
+    name: string;
+  };
 }
 
 export interface Product {

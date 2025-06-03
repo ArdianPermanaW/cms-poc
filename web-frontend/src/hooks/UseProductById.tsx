@@ -15,7 +15,7 @@ export function useProductById() {
     if (!id) return;
 
     axios
-      .get(`${API_URL}/${id}?populate=*`)
+      .get(`${API_URL}/${id}?pLevel`)
       .then((res) => {
         setProduct(res.data.data);
         console.log(res.data.data);
