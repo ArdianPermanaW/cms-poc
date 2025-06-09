@@ -7,7 +7,6 @@ export default function ProductPage() {
 
   useEffect(() => {
   if (product) {
-    console.log("ello mate");
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "product_view",
