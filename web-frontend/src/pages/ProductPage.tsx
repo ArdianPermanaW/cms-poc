@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useProductById } from "../hooks/UseProductById";
 
 export default function ProductPage() {
   const { product, loading, error } = useProductById();
   const [selectedVariantId, setSelectedVariantId] = useState<number | null>(null);
+
+  useEffect(() => {
+  if (product) {
+    console.log("ello mate");
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "product_view",
+      product_name: product.name,
+      product_id: product.id,
+    });
+  }
+}, [product]);
   
   const selectedVariant = product?.product_variants?.find(v => v.id === selectedVariantId);
   const displayPrice = selectedVariant?.price ?? product?.price;
