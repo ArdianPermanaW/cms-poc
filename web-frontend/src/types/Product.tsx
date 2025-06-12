@@ -27,4 +27,5 @@ export interface Product {
     };
   };
   product_variants?: ProductVariant[];
+  createdAt: string;
 }
