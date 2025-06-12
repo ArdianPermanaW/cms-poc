@@ -11,7 +11,7 @@ const Banner = () => {
           <em className="not-italic text-white/90">Browse</em> Our Products Here
         </h2>
         <a
-          href="TODO: link"
+          href="/browse"
           className="inline-block bg-white text-green font-semibold px-6 py-3 rounded-xl hover:bg-gray-200 transition"
         >
           Browse Now
