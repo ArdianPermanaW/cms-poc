@@ -9,7 +9,31 @@ export default function BrowsePage() {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-6">Browse Products</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">Browse Products</h1>
+        <div className="relative">
+          <select
+          className="	focus:outline-none appearance-none bg-gray-800 text-white border border-gray-600 px-4 py-2 rounded hover:bg-gray-700"
+        >
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="cheapest">Cheapest First</option>
+          <option value="expensive">Most Expensive First</option>
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+    <svg
+      className="w-4 h-4 text-gray-400 group-hover:text-green-400 transition"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+        </div>
+        
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {products.map((product) => {
           const imageUrl = product.Image?.url
