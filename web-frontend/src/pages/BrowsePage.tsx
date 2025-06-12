@@ -21,18 +21,17 @@ export default function BrowsePage() {
           <option value="expensive">Most Expensive First</option>
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-    <svg
-      className="w-4 h-4 text-gray-400 group-hover:text-green-400 transition"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
-  </div>
+          <svg
+            className="w-4 h-4 text-gray-400 group-hover:text-green-400 transition"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+         </div>
         </div>
-        
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {products.map((product) => {
