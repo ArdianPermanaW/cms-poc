@@ -1,8 +1,29 @@
 import { useProducts } from "../hooks/UseProduct";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useMemo } from "react";
 
 export default function BrowsePage() {
   const { products, loading, error } = useProducts();
+  const [sortOption, setSortOption] = useState("newest");
+
+  const sortedProducts = useMemo(() => {
+  if (!products) return [];
+
+  const sorted = [...products];
+  switch (sortOption) {
+    case "newest":
+      return sorted.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    case "oldest":
+      return sorted.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    case "cheapest":
+      return sorted.sort((a, b) => a.price - b.price);
+    case "expensive":
+      return sorted.sort((a, b) => b.price - a.price);
+    default:
+      return sorted;
+  }
+}, [products, sortOption]);
 
   if (loading) return <div className="text-white">Loading products...</div>;
   if (error) return <div className="text-red-500">{error}</div>;
@@ -13,6 +34,8 @@ export default function BrowsePage() {
         <h1 className="text-3xl font-bold">Browse Products</h1>
         <div className="relative">
           <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
           className="	focus:outline-none appearance-none bg-gray-800 text-white border border-gray-600 px-4 py-2 rounded hover:bg-gray-700"
         >
           <option value="newest">Newest First</option>
@@ -34,7 +57,7 @@ export default function BrowsePage() {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {products.map((product) => {
+        {sortedProducts.map((product) => {
           const imageUrl = product.Image?.url
             ? `http://localhost:1337${product.Image.url}`
             : "https://via.placeholder.com/300x300?text=No+Image";
