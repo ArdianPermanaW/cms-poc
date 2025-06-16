@@ -6,11 +6,16 @@ import { useMemo } from "react";
 export default function BrowsePage() {
   const { products, loading, error } = useProducts();
   const [sortOption, setSortOption] = useState("newest");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const sortedProducts = useMemo(() => {
   if (!products) return [];
 
-  const sorted = [...products];
+  const searchedProduct = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const sorted = [...searchedProduct];
   switch (sortOption) {
     case "newest":
       return sorted.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
@@ -23,7 +28,7 @@ export default function BrowsePage() {
     default:
       return sorted;
   }
-}, [products, sortOption]);
+}, [products, sortOption, searchQuery]);
 
   if (loading) return <div className="text-white">Loading products...</div>;
   if (error) return <div className="text-red-500">{error}</div>;
@@ -32,6 +37,13 @@ export default function BrowsePage() {
     <div className="p-8 bg-gray-900 min-h-screen text-white">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Browse Products</h1>
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="bg-gray-800 text-white border border-gray-600 px-4 py-2 rounded mr-4 focus:outline-none focus:border-green-500"
+        />
         <div className="relative">
           <select
           value={sortOption}
